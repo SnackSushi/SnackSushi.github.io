@@ -2,7 +2,7 @@ window.CONFIG = {
   serverName: "Placeholder",
   tagline: "A New MapleStory Experience",
   serverDescription: "Explore a custom MapleStory private server with unique features, balanced rates, and an active community.",
-  version: "v83",
+  version: "v95",
   maxLevel: 200,
   downloadUrl: "#", // Set to Google Drive, Mega, etc.
   discordLink: "#", // Set to your Discord invite link
