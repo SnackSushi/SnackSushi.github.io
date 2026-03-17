@@ -3,18 +3,30 @@
   const VALIDATION = {
     username: {
       minLength: 4,
-      maxLength: 12,
-      pattern: /^[a-zA-Z0-9_]+$/,
-      message: 'Username must be 4-12 characters, letters/numbers/underscores only.'
+      maxLength: 32,
+      pattern: /^[a-zA-Z0-9]+$/,
+      message: 'Username must be 4-32 characters, letters and numbers only.'
     },
     password: {
       minLength: 6,
-      maxLength: 32,
-      message: 'Password must be 6-32 characters.'
+      maxLength: 12,
+      message: 'Password must be 6-12 characters.'
     },
     email: {
       pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      message: 'Please enter a valid email address.'
+      allowedDomains: [
+        'gmail.com', 'googlemail.com',
+        'yahoo.com', 'yahoo.co.uk', 'yahoo.ca',
+        'outlook.com', 'hotmail.com', 'live.com', 'msn.com',
+        'icloud.com', 'me.com', 'mac.com',
+        'aol.com',
+        'protonmail.com', 'proton.me', 'pm.me',
+        'zoho.com',
+        'mail.com',
+        'gmx.com', 'gmx.net'
+      ],
+      message: 'Please enter a valid email address.',
+      domainMessage: 'Please use a major email provider (Gmail, Outlook, Yahoo, iCloud, ProtonMail, etc.).'
     }
   };
 
@@ -98,6 +110,12 @@
     } else if (password.length < VALIDATION.password.minLength || password.length > VALIDATION.password.maxLength) {
       showError('password', VALIDATION.password.message);
       valid = false;
+    } else if (username && password.toLowerCase().includes(username.toLowerCase())) {
+      showError('password', 'Password cannot contain your username.');
+      valid = false;
+    } else if (username && username.toLowerCase().includes(password.toLowerCase())) {
+      showError('password', 'Password is too similar to your username.');
+      valid = false;
     }
 
     // Confirm password
@@ -113,6 +131,12 @@
     } else if (!VALIDATION.email.pattern.test(email)) {
       showError('email', VALIDATION.email.message);
       valid = false;
+    } else {
+      var domain = email.split('@')[1].toLowerCase();
+      if (!VALIDATION.email.allowedDomains.includes(domain)) {
+        showError('email', VALIDATION.email.domainMessage);
+        valid = false;
+      }
     }
 
     // Birthday
