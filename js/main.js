@@ -148,8 +148,8 @@ function renderLandingPage() {
         <div class="info-value">${CONFIG.version}</div>
       </div>
       <div class="info-item">
-        <div class="info-label">EXP Rate</div>
-        <div class="info-value">${CONFIG.rates.exp}</div>
+        <div class="info-label">Quest EXP</div>
+        <div class="info-value">${CONFIG.rates.questExp}</div>
       </div>
       <div class="info-item">
         <div class="info-label">Meso Rate</div>
@@ -160,8 +160,59 @@ function renderLandingPage() {
         <div class="info-value">${CONFIG.rates.drop}</div>
       </div>
       <div class="info-item">
+        <div class="info-label">Mob Spawn</div>
+        <div class="info-value">${CONFIG.rates.mobSpawn}</div>
+      </div>
+      <div class="info-item">
         <div class="info-label">Max Level</div>
         <div class="info-value">${CONFIG.maxLevel}</div>
+      </div>
+    `;
+  }
+
+  // EXP rates table
+  const expTableBody = document.querySelector('#exp-rates-table tbody');
+  if (expTableBody) {
+    expTableBody.innerHTML = CONFIG.expRates.map(r =>
+      `<tr><td>${r.range}</td><td>${r.multiplier}</td></tr>`
+    ).join('');
+  }
+
+  // Info cards (NX drops, drop scaling, happy hour, PQ points)
+  const infoCards = document.getElementById('info-cards');
+  if (infoCards) {
+    infoCards.innerHTML = `
+      <div class="info-card animate-on-scroll">
+        <div class="feature-icon">${getIcon('trophy')}</div>
+        <h3>NX from Mobs</h3>
+        <ul>
+          <li><span class="info-card-label">Chance per kill:</span> ${CONFIG.nxDrops.chance}</li>
+          <li><span class="info-card-label">NX range:</span> ${CONFIG.nxDrops.min}–${CONFIG.nxDrops.max}</li>
+        </ul>
+      </div>
+      <div class="info-card animate-on-scroll">
+        <div class="feature-icon">${getIcon('map')}</div>
+        <h3>Drop Scaling</h3>
+        <p>${CONFIG.dropScaling.description}</p>
+        <ul>
+          <li><span class="info-card-label">Range:</span> ${CONFIG.dropScaling.multiplierRange}</li>
+        </ul>
+      </div>
+      <div class="info-card animate-on-scroll">
+        <div class="feature-icon">${getIcon('sparkles')}</div>
+        <h3>Happy Hour</h3>
+        <ul>
+          <li><span class="info-card-label">Duration:</span> ${CONFIG.happyHour.duration}</li>
+          <li><span class="info-card-label">EXP bonus:</span> ${CONFIG.happyHour.expBonus}</li>
+          <li><span class="info-card-label">PQ Points bonus:</span> ${CONFIG.happyHour.pqPointsBonus}</li>
+          <li><span class="info-card-label">Random start:</span> ${CONFIG.happyHour.window}</li>
+          <li><span class="info-card-label">Mob respawn:</span> ${CONFIG.happyHour.mobRespawn}</li>
+        </ul>
+      </div>
+      <div class="info-card animate-on-scroll">
+        <div class="feature-icon">${getIcon('users')}</div>
+        <h3>PQ Points</h3>
+        <p>${CONFIG.pqPoints.description}</p>
       </div>
     `;
   }
