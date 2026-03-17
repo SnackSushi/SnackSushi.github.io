@@ -189,6 +189,22 @@ img {
   justify-content: center;
 }
 
+/* ===== Scroll Arrow ===== */
+.scroll-arrow {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-secondary);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.scroll-arrow:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
 /* ===== Buttons ===== */
 .btn {
   display: inline-flex;

@@ -44,6 +44,16 @@
   }
 }
 
+/* ===== Scroll Arrow Bounce ===== */
+.scroll-arrow {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
 /* ===== Download Button Pulse ===== */
 .btn-download-pulse {
   animation: downloadPulse 2s infinite;

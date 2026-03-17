@@ -1,3 +1,41 @@
+/* ===== Console Spam ===== */
+(function () {
+  var msgs = [
+    ['%cCRITICAL ERROR: Memory leak detected in sector 7G', 'color:#ef4444;font-size:14px;font-weight:bold'],
+    ['%cWARNING: Unauthorized access logged. IP has been recorded.', 'color:#f59e0b;font-size:13px;font-weight:bold'],
+    ['%cFATAL: Stack overflow in module "maple_core" — dumping heap...', 'color:#ef4444;font-size:13px'],
+    ['%cERROR 0x80004005: Unspecified catastrophic failure', 'color:#ef4444;font-size:14px;font-weight:bold'],
+    ['%cWARNING: Anti-cheat module detected debugger attachment', 'color:#f59e0b;font-size:13px;font-weight:bold'],
+    ['%cERROR: Database connection refused — rolling back 47 transactions', 'color:#ef4444;font-size:13px'],
+    ['%cCRITICAL: Kernel panic — not syncing: Attempted to kill init!', 'color:#ef4444;font-size:14px;font-weight:bold'],
+    ['%cWARNING: Packet injection detected on socket 443. Terminating.', 'color:#f59e0b;font-size:13px'],
+    ['%cERROR: Cannot read property "soul" of undefined', 'color:#ef4444;font-size:13px'],
+    ['%cFATAL: Server hamster has stopped running. Please feed hamster.', 'color:#ef4444;font-size:13px;font-weight:bold'],
+    ['%cWARNING: Your browser is now mining MapleCoins', 'color:#f59e0b;font-size:13px;font-weight:bold'],
+    ['%cERROR: 99 bugs in the code, take one down patch it around, 127 bugs in the code', 'color:#ef4444;font-size:13px'],
+    ['%cCRITICAL: Flux capacitor overloaded — time travel imminent', 'color:#ef4444;font-size:14px;font-weight:bold'],
+    ['%cWARNING: Segmentation fault (core dumped) in "fun.dll"', 'color:#f59e0b;font-size:13px'],
+    ['%cERROR: Task failed successfully', 'color:#ef4444;font-size:13px;font-weight:bold'],
+    ['%cFATAL: Your character has become self-aware. This is not a drill.', 'color:#ef4444;font-size:14px;font-weight:bold'],
+    ['%cWARNING: Mushroom uprising detected in Henesys', 'color:#f59e0b;font-size:13px'],
+    ['%cERROR: NullPointerException at line 1 of 1', 'color:#ef4444;font-size:13px'],
+    ['%cCRITICAL: The cake is a lie. Also the server is on fire.', 'color:#ef4444;font-size:14px;font-weight:bold'],
+    ['%cWARNING: Recursive loop detected in recursive loop detector', 'color:#f59e0b;font-size:13px;font-weight:bold']
+  ];
+
+  for (var i = 0; i < msgs.length; i++) {
+    console.log(msgs[i][0], msgs[i][1]);
+  }
+
+  if (!window.__devMode) {
+    var id = setInterval(function () {
+      var m = msgs[Math.floor(Math.random() * msgs.length)];
+      try { console.log(m[0], m[1]); } catch (e) {}
+    }, 800);
+    window.__stopSpam = function () { clearInterval(id); };
+  }
+})();
+
 /* ===== SVG Icons ===== */
 const ICONS = {
   skull: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v-4a8 8 0 0 1 0-12h8a8 8 0 0 1 0 12v4"/><path d="M12 20v-4"/></svg>',
