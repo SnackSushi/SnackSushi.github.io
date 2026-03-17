@@ -38,6 +38,16 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('../images/background/bgrnd_1.png') center / cover no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: -1;
+}
+
 a {
   color: var(--accent-purple);
   text-decoration: none;
