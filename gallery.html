@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - MapleStory Private Server</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo"></a>
+    <ul class="nav-links"></ul>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Gallery</h1>
+    <p>Screenshots from in-game adventures.</p>
+  </div>
+
+  <!-- Gallery Grid -->
+  <section class="section">
+    <div class="gallery-grid stagger-children"></div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" role="dialog" aria-modal="false" aria-label="Image viewer">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous">&#8249;</button>
+    <img src="" alt="">
+    <button class="lightbox-nav lightbox-next" aria-label="Next">&#8250;</button>
+    <div class="lightbox-caption"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer"></footer>
+
+  <script src="config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

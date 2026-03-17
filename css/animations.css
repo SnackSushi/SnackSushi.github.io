@@ -1,0 +1,140 @@
+/* ===== Scroll Animations ===== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.stagger-children .animate-on-scroll:nth-child(1) { transition-delay: 0s; }
+.stagger-children .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children .animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.stagger-children .animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+.stagger-children .animate-on-scroll:nth-child(5) { transition-delay: 0.4s; }
+.stagger-children .animate-on-scroll:nth-child(6) { transition-delay: 0.5s; }
+
+/* ===== Hero Entrance ===== */
+.hero-title {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroEntrance 0.8s ease-out 0.2s forwards;
+}
+
+.hero-tagline {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroEntrance 0.8s ease-out 0.4s forwards;
+}
+
+.hero-ctas {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroEntrance 0.8s ease-out 0.6s forwards;
+}
+
+@keyframes heroEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Download Button Pulse ===== */
+.btn-download-pulse {
+  animation: downloadPulse 2s infinite;
+}
+
+@keyframes downloadPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 40px rgba(139, 92, 246, 0.7);
+  }
+}
+
+/* ===== Card Hover Lift ===== */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
+}
+
+/* ===== Gallery Item Hover ===== */
+.gallery-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+/* ===== Lightbox Fade ===== */
+.lightbox {
+  transition: opacity 0.3s ease;
+}
+
+/* ===== Navbar Link Underline ===== */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-purple);
+  border-radius: 1px;
+  transition: width 0.3s, left 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-title,
+  .hero-tagline,
+  .hero-ctas {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .btn-download-pulse {
+    animation: none;
+  }
+
+  .feature-card,
+  .gallery-item {
+    transition: none;
+  }
+
+  .lightbox {
+    transition: none;
+  }
+
+  .nav-links a::after {
+    transition: none;
+  }
+}
