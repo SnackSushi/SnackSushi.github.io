@@ -1,12 +1,12 @@
 window.CONFIG = {
-  serverName: "Placeholder",
+  serverName: "Leafbound",
   tagline: "A New MapleStory Experience",
   serverDescription: "Explore a custom MapleStory private server with unique features, balanced rates, and an active community.",
   version: "v95",
   maxLevel: 200,
   downloadUrl: "#", // Set to Google Drive, Mega, etc.
   discordLink: "#", // Set to your Discord invite link
-  apiBaseUrl: "http://localhost:8080", // Change to production API URL
+  apiBaseUrl: "https://api.leafbound.net", // Production API
 
   // Progressive mob EXP rates (level-based)
   expRates: [
